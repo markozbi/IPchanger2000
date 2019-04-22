@@ -1,0 +1,7 @@
+C:\Users\maroz\source\repos\markozbi\CSFirstSteps\IPchanger2000\IPchanger2000\obj\Debug\IPchanger2000.csprojAssemblyReference.cache
+C:\Users\maroz\source\repos\markozbi\CSFirstSteps\IPchanger2000\IPchanger2000\obj\Debug\IPchanger2000.csproj.CoreCompileInputs.cache
+C:\Users\maroz\source\repos\markozbi\CSFirstSteps\IPchanger2000\IPchanger2000\bin\Debug\IPchanger2000.exe.config
+C:\Users\maroz\source\repos\markozbi\CSFirstSteps\IPchanger2000\IPchanger2000\bin\Debug\IPchanger2000.exe
+C:\Users\maroz\source\repos\markozbi\CSFirstSteps\IPchanger2000\IPchanger2000\bin\Debug\IPchanger2000.pdb
+C:\Users\maroz\source\repos\markozbi\CSFirstSteps\IPchanger2000\IPchanger2000\obj\Debug\IPchanger2000.exe
+C:\Users\maroz\source\repos\markozbi\CSFirstSteps\IPchanger2000\IPchanger2000\obj\Debug\IPchanger2000.pdb
