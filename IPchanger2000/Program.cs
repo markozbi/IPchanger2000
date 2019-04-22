@@ -16,6 +16,7 @@ namespace IPchanger2000
             //DisplayDnsConfiguration
             //WMIQuery_NetworkAdapterConfiguration();
             //WMIQuery_NetworkAdapter;
+            //dupa
             bool programActive = true;
             while (programActive)
             {
