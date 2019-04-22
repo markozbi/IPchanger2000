@@ -17,6 +17,7 @@ namespace IPchanger2000
             //WMIQuery_NetworkAdapterConfiguration();
             //WMIQuery_NetworkAdapter;
             //dupa
+            //dupa 2
             bool programActive = true;
             while (programActive)
             {
