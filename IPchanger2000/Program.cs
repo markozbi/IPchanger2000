@@ -12,32 +12,54 @@ namespace IPchanger2000
     {
         static void Main(string[] args)
         {
-            programStep myProgramStep = new programStep();
-            //DisplayDnsConfiguration
-            //WMIQuery_NetworkAdapterConfiguration();
-            //WMIQuery_NetworkAdapter;
-            //dupa
-            //dupa 2
+            ProgramStep myProgramStep = new ProgramStep();
+
             bool programActive = true;
+            List<ProgramStep> nextSteps = new List<ProgramStep>();
             while (programActive)
             {
                 switch (myProgramStep)
                 {
-                    case programStep.init:
+                    case ProgramStep.init:
+                        nextSteps.Clear();
+
                         Console.WriteLine("Welcome to IPchanger2000!");
+
+                        nextSteps.Add(ProgramStep.chooseNetworkAdapter);
+                        nextSteps.Add(ProgramStep.End);
                         break;
-                    case programStep.chooseNetworkAdapter:
+                    case ProgramStep.chooseNetworkAdapter:
+                        nextSteps.Clear();
+
+                        Console.WriteLine("Choosing the network adapter...");
+                        WMIQuery_NetworkAdapter();
+                        nextSteps.Add(ProgramStep.selectConfiguration);
+                        nextSteps.Add(ProgramStep.End);
                         break;
-                    case programStep.selectConfiguration:
+                    case ProgramStep.selectConfiguration:
+                        nextSteps.Clear();
+
+                        Console.WriteLine("Selecting desired configuration...");
+
+                        nextSteps.Add(ProgramStep.applyConfiguration);
+                        nextSteps.Add(ProgramStep.End);
                         break;
-                    case programStep.applyConfiguration:
+                    case ProgramStep.applyConfiguration:
+                        nextSteps.Clear();
+
+                        Console.WriteLine("Applying choosen configuration...");
+
+                        nextSteps.Add(ProgramStep.End);
+                        break;
+                    case ProgramStep.End:
+                        Console.WriteLine("Goodbye");
+                        programActive = false;
                         break;
                     default:
                         break;
                 }
+                myProgramStep = CaseSelector(nextSteps,myProgramStep);
             }
-            
-            Console.ReadLine();
 
         }
 
@@ -81,12 +103,30 @@ namespace IPchanger2000
             }
         }
 
-        enum programStep
+        public enum ProgramStep
         {
             init,
             chooseNetworkAdapter,
             selectConfiguration,
             applyConfiguration,
+            End,
+        }
+
+        public static  ProgramStep CaseSelector(List<ProgramStep> stepChoices, ProgramStep currentStep)
+        {
+            if (currentStep != ProgramStep.End)
+            {
+                Console.WriteLine();
+                Console.WriteLine("What is the next step?");
+                foreach (int step in stepChoices)
+                {
+                    Console.WriteLine("[{0}] - {1}", step, Enum.GetName(typeof(ProgramStep), step));
+                }
+                Console.Write ("Your choice: ");
+                int  i = Int32.Parse(Console.ReadLine());
+                return (ProgramStep) i;
+            }
+            return ProgramStep.End;
         }
     }
 }
